@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}EventFinder - Find Live Events Near You{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 EventFinder</h1>
+        <p class="subtitle">Discover live events happening tonight in your city</p>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message error">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 EventFinder. Powered by <a href="https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/" target="_blank">Ticketmaster Discovery API</a></p>
+        </footer>
+    </div>
+</body>
+</html>

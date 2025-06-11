@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="search-section">
+    <form action="{{ url_for('results') }}" method="POST" class="search-form">
+        <label for="city">Enter your city:</label>
+        <input type="text" id="city" name="city" placeholder="e.g., Seattle" required>
+        <button type="submit">Search Events</button>
+    </form>
+    <p class="form-hint">We'll find events happening tonight based on your city.</p>
+</div>
+{% endblock %}
